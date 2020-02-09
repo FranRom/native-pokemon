@@ -15,7 +15,7 @@ const PokemonItem = ({ name, pokemonData }) => {
     <View style={styles.container}>
       <TouchableOpacity onPress={toggleTrueFalse}>
         <View>
-          <Image style={styles.image} source={DEFAULT_IMAGE} />
+          <Image style={styles.image} source={{ uri: DEFAULT_IMAGE }} />
           <Text style={styles.name}>{name}</Text>
           {showInfo && (
             <AddtionalInfo height={height} weight={weight} order={order} />
