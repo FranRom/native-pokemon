@@ -1,15 +1,16 @@
 import React from 'react';
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 
-import PokemonList from './src/components/PokemonList';
-
-export default function App() {
+const PokemonList = ({ pokemons }) => {
+  console.log('POKEMONS:', pokemons);
   return (
     <View style={styles.container}>
-      <PokemonList />
+      {pokemons.map(pokemon => (
+        <Text>{pokemon.name}</Text>
+      ))}
     </View>
   );
-}
+};
 
 const styles = StyleSheet.create({
   container: {
@@ -19,3 +20,5 @@ const styles = StyleSheet.create({
     justifyContent: 'center'
   }
 });
+
+export default PokemonList;
