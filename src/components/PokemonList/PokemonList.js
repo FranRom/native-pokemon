@@ -1,15 +1,15 @@
 import React from 'react';
-import { StyleSheet, View, ScrollView } from 'react-native';
+import { StyleSheet, View, ScrollView, FlatList } from 'react-native';
 
 import PokemonItem from '../PokemonItem';
 
 const PokemonList = ({ pokemonsData }) => (
   <View style={styles.container}>
-    <ScrollView>
-      {pokemonsData.map(({ name, url }) => (
-        <PokemonItem name={name} url={url} key={name} />
-      ))}
-    </ScrollView>
+    <FlatList
+      data={pokemonsData}
+      renderItem={({ item }) => <PokemonItem name={item.name} url={item.url} />}
+      keyExtractor={item => item.name}
+    />
   </View>
 );
 
