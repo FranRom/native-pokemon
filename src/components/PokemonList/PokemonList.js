@@ -1,16 +1,17 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View, ScrollView } from 'react-native';
 
-const PokemonList = ({ pokemons }) => {
-  console.log('POKEMONS:', pokemons);
-  return (
-    <View style={styles.container}>
-      {pokemons.map(pokemon => (
-        <Text>{pokemon.name}</Text>
+import PokemonItem from '../PokemonItem';
+
+const PokemonList = ({ pokemonsData }) => (
+  <View style={styles.container}>
+    <ScrollView>
+      {pokemonsData.map(({ name, url }) => (
+        <PokemonItem name={name} url={url} key={name} />
       ))}
-    </View>
-  );
-};
+    </ScrollView>
+  </View>
+);
 
 const styles = StyleSheet.create({
   container: {
