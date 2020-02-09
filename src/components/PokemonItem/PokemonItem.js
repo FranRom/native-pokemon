@@ -1,21 +1,34 @@
-import React from 'react';
-import { StyleSheet, Text, View, Image } from 'react-native';
+import React, { useState } from 'react';
+import { View, StyleSheet, Text, TouchableOpacity, Image } from 'react-native';
+
+import AddtionalInfo from '../AdditionalInfo';
 
 const PokemonItem = ({ name, pokemonData }) => {
-  const { sprites } = pokemonData;
+  const [showInfo, setShowInfo] = useState(false);
 
+  const toggleTrueFalse = () => setShowInfo(!showInfo);
+
+  const { sprites, height, weight, order } = pokemonData;
   const DEFAULT_IMAGE = sprites && sprites.front_default;
 
   return (
     <View style={styles.container}>
-      <Image style={styles.image} source={DEFAULT_IMAGE} />
-      <Text>{name}</Text>
+      <TouchableOpacity onPress={toggleTrueFalse}>
+        <View>
+          <Image style={styles.image} source={DEFAULT_IMAGE} />
+          <Text style={styles.name}>{name}</Text>
+          {showInfo && (
+            <AddtionalInfo height={height} weight={weight} order={order} />
+          )}
+        </View>
+      </TouchableOpacity>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
+    flex: 1,
     margin: 4,
     padding: 30,
     borderColor: '#2a4944',
@@ -23,6 +36,10 @@ const styles = StyleSheet.create({
     backgroundColor: '#eeeeee',
     alignItems: 'center',
     justifyContent: 'space-between'
+  },
+  name: {
+    fontSize: 20,
+    textAlign: 'center'
   },
   image: {
     height: 150,
