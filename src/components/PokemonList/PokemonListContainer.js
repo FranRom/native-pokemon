@@ -9,11 +9,13 @@ const GET_POKEMONS_LIST_ENDPOINT = `https://pokeapi.co/api/v2/pokemon?limit=${RE
 
 const PokemonListContainer = () => {
   const [data, setData] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
   const [hasError, setHasError] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
       setHasError(false);
+      setIsLoading(true);
 
       try {
         const response = await axios(GET_POKEMONS_LIST_ENDPOINT);
@@ -22,6 +24,8 @@ const PokemonListContainer = () => {
       } catch (error) {
         setHasError(true);
       }
+
+      setIsLoading(false);
     };
 
     fetchData();
@@ -30,7 +34,8 @@ const PokemonListContainer = () => {
   return (
     <View>
       {hasError && <Text>Something was wrong...</Text>}
-      <PokemonList pokemons={data} />
+
+      {isLoading ? <Text>Loading...</Text> : <PokemonList pokemons={data} />}
     </View>
   );
 };
