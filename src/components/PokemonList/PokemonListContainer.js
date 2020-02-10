@@ -36,9 +36,7 @@ const PokemonListContainer = () => {
   }, []);
 
   const filterData = inputText => {
-    const results = originalData.filter(
-      item => item.name === inputText.toLowerCase()
-    );
+    const results = originalData.filter(item => item.name.includes(inputText));
 
     setSearchText(inputText);
     setFilteredData(results);
