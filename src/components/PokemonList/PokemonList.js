@@ -1,11 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { StyleSheet, View, FlatList } from 'react-native';
+import { View, FlatList } from 'react-native';
+
+import { pokemonListStyles } from '../../utils/STYLES';
 
 import PokemonItem from '../PokemonItem';
 
 const PokemonList = ({ pokemonsData }) => (
-  <View style={styles.container}>
+  <View style={pokemonListStyles.container}>
     <FlatList
       data={pokemonsData}
       renderItem={({ item }) => <PokemonItem name={item.name} url={item.url} />}
@@ -13,15 +15,6 @@ const PokemonList = ({ pokemonsData }) => (
     />
   </View>
 );
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center'
-  }
-});
 
 PokemonList.propTypes = {
   pokemonsData: PropTypes.arrayOf(

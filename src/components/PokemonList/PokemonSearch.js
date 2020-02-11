@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { Text, View, StyleSheet, TextInput } from 'react-native';
+import { Text, View, TextInput } from 'react-native';
 import { PAGE_TITLE, INPUT_PLACEHOLDER } from '../../utils/CONSTANTS';
+import { pokemonSearchStyles } from '../../utils/STYLES';
 
 import PokemonList from './PokemonList';
 
@@ -18,10 +19,10 @@ const PokemonSearch = ({ pokemonsOriginalList }) => {
   };
 
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>{PAGE_TITLE}</Text>
+    <View style={pokemonSearchStyles.container}>
+      <Text style={pokemonSearchStyles.title}>{PAGE_TITLE}</Text>
       <TextInput
-        style={styles.textInput}
+        style={pokemonSearchStyles.textInput}
         placeholder={INPUT_PLACEHOLDER}
         onChangeText={filterData}
         value={searchText}
@@ -32,27 +33,5 @@ const PokemonSearch = ({ pokemonsOriginalList }) => {
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    justifyContent: 'center',
-    flex: 1,
-    marginTop: 40,
-    padding: 16
-  },
-  title: {
-    fontSize: 30,
-    textAlign: 'center'
-  },
-  textInput: {
-    marginTop: 16,
-    marginBottom: 8,
-    height: 40,
-    borderWidth: 1,
-    paddingLeft: 10,
-    borderColor: '#009688',
-    backgroundColor: '#FFFFFF'
-  }
-});
 
 export default PokemonSearch;

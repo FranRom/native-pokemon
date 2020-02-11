@@ -25,11 +25,14 @@ const PokemonItem = ({ name, pokemonData }) => {
   const getImageToShow = showInfo ? FRONT_IMAGE : BACK_IMAGE;
 
   return (
-    <View style={styles.container}>
+    <View style={pokemonItemStyles.container}>
       <TouchableOpacity onPress={toggleTrueFalse}>
         <View>
-          <Image style={styles.image} source={{ uri: getImageToShow }} />
-          <Text style={styles.name}>{name}</Text>
+          <Image
+            style={pokemonItemStyles.image}
+            source={{ uri: getImageToShow }}
+          />
+          <Text style={pokemonItemStyles.name}>{name}</Text>
           {showInfo && (
             <AddtionalInfo height={height} weight={weight} order={order} />
           )}
@@ -38,27 +41,6 @@ const PokemonItem = ({ name, pokemonData }) => {
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    margin: 4,
-    padding: 30,
-    borderColor: '#2a4944',
-    borderWidth: 1,
-    backgroundColor: '#eeeeee',
-    alignItems: 'center',
-    justifyContent: 'space-between'
-  },
-  name: {
-    fontSize: 20,
-    textAlign: 'center'
-  },
-  image: {
-    height: 150,
-    width: 150
-  }
-});
 
 PokemonItem.propTypes = {
   name: PropTypes.string.isRequired,
