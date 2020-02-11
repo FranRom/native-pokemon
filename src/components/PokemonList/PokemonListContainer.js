@@ -1,16 +1,18 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Text, View, StyleSheet, TextInput } from 'react-native';
 
+import {
+  PAGE_TITLE,
+  INPUT_PLACEHOLDER,
+  LOADING_TEXT,
+  ERROR_MESSAGE
+} from '../../utils/CONSTANTS';
 import useRequestData from '../../utils/useRequestData';
 
 import PokemonList from './PokemonList';
 
 const RESULTS_NUMBER = 50;
 const GET_POKEMONS_LIST_ENDPOINT = `https://pokeapi.co/api/v2/pokemon?limit=${RESULTS_NUMBER}`;
-const PAGE_TITLE = 'POKEMON DB';
-const INPUT_PLACEHOLDER = 'Search here...';
-const LOADING_TEXT = 'Loading...';
-const ERROR_MESSAGE = 'Something was wrong...';
 
 const PokemonListContainer = () => {
   const [searchText, setSearchText] = useState('');

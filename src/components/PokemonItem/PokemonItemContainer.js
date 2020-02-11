@@ -1,12 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { Text, View } from 'react-native';
 
+import { LOADING_TEXT, ERROR_MESSAGE } from '../../utils/CONSTANTS';
 import useRequestData from '../../utils/useRequestData';
 
 import PokemonItem from './PokemonItem';
-
-const ERROR_MESSAGE = 'Something was wrong...';
-const LOADING_TEXT = 'Loading...';
 
 const PokemonItemContainer = ({ name, url }) => {
   const [pokemonData, setPokemonData] = useState([]);
