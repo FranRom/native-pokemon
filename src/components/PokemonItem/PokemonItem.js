@@ -3,10 +3,20 @@ import { View, StyleSheet, Text, TouchableOpacity, Image } from 'react-native';
 
 import AddtionalInfo from '../AdditionalInfo';
 
+const PlayCryAudio = sourceId => {
+  const crySoundPath = `https://play.pokemonshowdown.com/audio/cries/${sourceId}.mp3`;
+  const cryAudio = new Audio(crySoundPath);
+
+  cryAudio.play();
+};
+
 const PokemonItem = ({ name, pokemonData }) => {
   const [showInfo, setShowInfo] = useState(false);
 
-  const toggleTrueFalse = () => setShowInfo(!showInfo);
+  const toggleTrueFalse = () => {
+    setShowInfo(!showInfo);
+    PlayCryAudio(name);
+  };
 
   const { sprites, height, weight, order } = pokemonData;
   const DEFAULT_IMAGE = sprites && sprites.front_default;
