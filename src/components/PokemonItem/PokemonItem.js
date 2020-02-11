@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import { View, StyleSheet, Text, TouchableOpacity, Image } from 'react-native';
 
 import AddtionalInfo from '../AdditionalInfo';
@@ -58,5 +59,18 @@ const styles = StyleSheet.create({
     width: 150
   }
 });
+
+PokemonItem.propTypes = {
+  name: PropTypes.string.isRequired,
+  pokemonData: PropTypes.shape({
+    sprites: PropTypes.shape({
+      front_default: PropTypes.string.isRequired,
+      back_default: PropTypes.string.isRequired
+    }),
+    height: PropTypes.number,
+    weight: PropTypes.number,
+    order: PropTypes.number
+  })
+};
 
 export default PokemonItem;

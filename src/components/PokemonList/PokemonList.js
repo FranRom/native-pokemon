@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { StyleSheet, View, FlatList } from 'react-native';
 
 import PokemonItem from '../PokemonItem';
@@ -21,5 +22,14 @@ const styles = StyleSheet.create({
     justifyContent: 'center'
   }
 });
+
+PokemonList.propTypes = {
+  pokemonsData: PropTypes.arrayOf(
+    PropTypes.shape({
+      name: PropTypes.string.isRequired,
+      url: PropTypes.string.isRequired
+    })
+  )
+};
 
 export default PokemonList;
