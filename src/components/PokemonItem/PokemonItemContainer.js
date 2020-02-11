@@ -1,41 +1,31 @@
 import React, { useState, useEffect } from 'react';
 import { Text, View } from 'react-native';
-import axios from 'axios';
+
+import useRequestData from '../../utils/useRequestData';
 
 import PokemonItem from './PokemonItem';
 
+const ERROR_MESSAGE = 'Something was wrong...';
+const LOADING_TEXT = 'Loading...';
+
 const PokemonItemContainer = ({ name, url }) => {
-  const [data, setData] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
-  const [hasError, setHasError] = useState(false);
+  const [pokemonData, setPokemonData] = useState([]);
+  const { isError, isLoading, data } = useRequestData(url, []);
 
   useEffect(() => {
-    const fetchData = async () => {
-      setHasError(false);
-      setIsLoading(true);
-
-      try {
-        const response = await axios(url);
-
-        setData(response.data);
-      } catch (error) {
-        setHasError(true);
-      }
-
-      setIsLoading(false);
-    };
-
-    fetchData();
-  }, []);
+    if (data && data.data) {
+      setPokemonData(data.data);
+    }
+  }, [data]);
 
   return (
     <View>
-      {hasError && <Text>Something was wrong...</Text>}
+      {isError && <Text>{ERROR_MESSAGE}</Text>}
 
       {isLoading ? (
-        <Text>Loading...</Text>
+        <Text>{LOADING_TEXT}</Text>
       ) : (
-        <PokemonItem name={name} pokemonData={data} />
+        <PokemonItem name={name} pokemonData={pokemonData} />
       )}
     </View>
   );

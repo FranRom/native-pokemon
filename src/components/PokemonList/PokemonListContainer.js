@@ -1,63 +1,50 @@
 import React, { useState, useEffect } from 'react';
 import { Text, View, StyleSheet, TextInput } from 'react-native';
-import axios from 'axios';
+
+import useRequestData from '../../utils/useRequestData';
 
 import PokemonList from './PokemonList';
 
 const RESULTS_NUMBER = 50;
 const GET_POKEMONS_LIST_ENDPOINT = `https://pokeapi.co/api/v2/pokemon?limit=${RESULTS_NUMBER}`;
-const PLACEHOLDER = 'Search here...';
-const PAGE_TITLE = 'POKEMON LIST';
+const PAGE_TITLE = 'POKEMON DB';
+const INPUT_PLACEHOLDER = 'Search here...';
+const LOADING_TEXT = 'Loading...';
+const ERROR_MESSAGE = 'Something was wrong...';
 
 const PokemonListContainer = () => {
-  const [originalData, setOriginalData] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
-  const [hasError, setHasError] = useState(false);
   const [searchText, setSearchText] = useState('');
-  const [filteredData, setFilteredData] = useState(null);
+  const [filteredResults, setFilteredResults] = useState(null);
+  const { isError, isLoading, data } = useRequestData(
+    GET_POKEMONS_LIST_ENDPOINT,
+    []
+  );
 
-  useEffect(() => {
-    const fetchData = async () => {
-      setHasError(false);
-      setIsLoading(true);
-
-      try {
-        const response = await axios(GET_POKEMONS_LIST_ENDPOINT);
-
-        setOriginalData(response.data.results);
-      } catch (error) {
-        setHasError(true);
-      }
-
-      setIsLoading(false);
-    };
-
-    fetchData();
-  }, []);
+  const { results } = data && data.data ? data.data : {};
 
   const filterData = inputText => {
-    const results = originalData.filter(item => item.name.includes(inputText));
+    const filteredData = results.filter(item => item.name.includes(inputText));
 
     setSearchText(inputText);
-    setFilteredData(results);
+    setFilteredResults(filteredData);
   };
 
   return (
     <View>
-      {hasError && <Text>Something was wrong...</Text>}
+      {isError && <Text>{ERROR_MESSAGE}</Text>}
 
       {isLoading ? (
-        <Text>Loading...</Text>
+        <Text>{LOADING_TEXT}</Text>
       ) : (
         <View style={styles.container}>
           <Text style={styles.title}>{PAGE_TITLE}</Text>
           <TextInput
             style={styles.textInput}
-            placeholder={PLACEHOLDER}
+            placeholder={INPUT_PLACEHOLDER}
             onChangeText={filterData}
             value={searchText}
           />
-          <PokemonList pokemonsData={filteredData || originalData} />
+          <PokemonList pokemonsData={filteredResults || results} />
         </View>
       )}
     </View>
