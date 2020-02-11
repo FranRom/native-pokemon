@@ -19,13 +19,15 @@ const PokemonItem = ({ name, pokemonData }) => {
   };
 
   const { sprites, height, weight, order } = pokemonData;
-  const DEFAULT_IMAGE = sprites && sprites.front_default;
+  const FRONT_IMAGE = sprites && sprites.front_default;
+  const BACK_IMAGE = sprites && sprites.back_default;
+  const getImageToShow = showInfo ? FRONT_IMAGE : BACK_IMAGE;
 
   return (
     <View style={styles.container}>
       <TouchableOpacity onPress={toggleTrueFalse}>
         <View>
-          <Image style={styles.image} source={{ uri: DEFAULT_IMAGE }} />
+          <Image style={styles.image} source={{ uri: getImageToShow }} />
           <Text style={styles.name}>{name}</Text>
           {showInfo && (
             <AddtionalInfo height={height} weight={weight} order={order} />
