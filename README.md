@@ -22,3 +22,7 @@ To start, run
 yarn
 expo start
 ```
+
+## Preview
+
+[![Preview](https://media.giphy.com/media/L12IQADcc9nHHlyDps/giphy.gif)](https://www.youtube.com/watch?v=awlga7aAhe4)
