@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import { View, StyleSheet, Text, TouchableOpacity, Image } from 'react-native';
+import { View, Text, TouchableOpacity, Image } from 'react-native';
+
+import { pokemonItemStyles } from '../../utils/STYLES';
 
 import AddtionalInfo from '../AdditionalInfo';
 

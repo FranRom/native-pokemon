@@ -10,7 +10,7 @@ const PokemonSearch = ({ pokemonsOriginalList }) => {
   const [pokemonsFilteredList, setPokemonsFilteredList] = useState(null);
 
   const filterData = inputText => {
-    const filteredData = pokemonsData.filter(item =>
+    const filteredData = pokemonsOriginalList.filter(item =>
       item.name.includes(inputText)
     );
 
