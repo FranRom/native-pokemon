@@ -16,6 +16,8 @@ The data is fetched from PokeAPI, documentation: https://pokeapi.co/docs/v2.html
 
 ## Instructions
 
+You need to be using Node (https://nodejs.org/en/), last version recommended.
+
 To start, run
 
 ```
@@ -24,5 +26,7 @@ expo start
 ```
 
 ## Preview
+
+> Click on the gif preview to view a video with sound.
 
 [![Preview](https://media.giphy.com/media/L12IQADcc9nHHlyDps/giphy.gif)](https://www.youtube.com/watch?v=awlga7aAhe4)
