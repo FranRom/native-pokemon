@@ -1,16 +1,22 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { View, Text, TouchableOpacity, Image } from 'react-native';
+import { Audio } from 'expo-av';
 
-import { pokemonItemStyles } from '../../utils/STYLES';
+import { pokemonItemStyles } from '../../utils/Styles';
 
 import AddtionalInfo from '../AdditionalInfo';
 
-const PlayCryAudio = sourceId => {
+const PlayCryAudio = async sourceId => {
   const crySoundPath = `https://play.pokemonshowdown.com/audio/cries/${sourceId}.mp3`;
-  const cryAudio = new Audio(crySoundPath);
+  const cryAudioObject = new Audio.Sound();
 
-  cryAudio.play();
+  try {
+    await cryAudioObject.loadAsync({ uri: crySoundPath });
+    await cryAudioObject.playAsync();
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 const PokemonItem = ({ name, pokemonData }) => {
