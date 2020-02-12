@@ -65,10 +65,3 @@ export const additionalInfoStyles = StyleSheet.create({
     justifyContent: 'center'
   }
 });
-
-export default {
-  pokemonSearchStyles,
-  pokemonListStyles,
-  pokemonItemStyles,
-  additionalInfoStyles
-};

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Text, View, TextInput } from 'react-native';
-import { PAGE_TITLE, INPUT_PLACEHOLDER } from '../../utils/CONSTANTS';
-import { pokemonSearchStyles } from '../../utils/STYLES';
+import { PAGE_TITLE, INPUT_PLACEHOLDER } from '../../utils/Constants';
+import { pokemonSearchStyles } from '../../utils/Styles';
 
 import PokemonList from './PokemonList';
 

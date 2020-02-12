@@ -1,7 +1,7 @@
 import React from 'react';
 import { Text, View } from 'react-native';
 
-import { LOADING_TEXT, ERROR_MESSAGE } from '../../utils/CONSTANTS';
+import { LOADING_TEXT, ERROR_MESSAGE } from '../../utils/Constants';
 import useRequestData from '../../utils/useRequestData';
 
 import PokemonSearch from './PokemonSearch';
