@@ -17,7 +17,7 @@ describe('AdditionalInfo', () => {
       order={MOCKED_DATA.order}
     />
   );
-  console.log(wrapper.debug());
+
   it('should render the expected info fields', () => {
     expect(
       wrapper.find('[data-test="additional-info-height"]').exists()

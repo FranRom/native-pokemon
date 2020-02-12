@@ -12,7 +12,7 @@ You can search pokemons by its name in the Search bar and you will obtain a filt
 
 I've used Expo (https://expo.io/learn) to create this project.
 
-The data is fetched from PokeAPI, documentation: https://pokeapi.co/docs/v2.html
+The data is fetched from PokeAPI, documentation: https://pokeapi.co/docs/v2.html I have set a limit of 50 results because it is just for development purpose, but you can change it easily in the code.
 
 ## Instructions
 
