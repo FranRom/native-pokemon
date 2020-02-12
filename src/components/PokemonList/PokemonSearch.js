@@ -11,7 +11,7 @@ const PokemonSearch = ({ pokemonsOriginalList }) => {
 
   const filterData = inputText => {
     const filteredData = pokemonsOriginalList.filter(item =>
-      item.name.includes(inputText)
+      item.name.toUpperCase().includes(inputText.toUpperCase())
     );
 
     setSearchText(inputText);
