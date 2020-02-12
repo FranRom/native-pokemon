@@ -6,9 +6,15 @@ import { additionalInfoStyles } from '../../utils/STYLES';
 
 const AdditionalInfo = ({ height, weight, order }) => (
   <View style={additionalInfoStyles.container}>
-    <Text>Height: {height}</Text>
-    <Text>Weight: {weight}</Text>
-    <Text>Order: {order}</Text>
+    <Text data-test='additional-info-height'>
+      Height: <Text data-test='additional-info-height-value'>{height}</Text>
+    </Text>
+    <Text data-test='additional-info-weight'>
+      Weight: <Text data-test='additional-info-weight-value'>{weight}</Text>
+    </Text>
+    <Text data-test='additional-info-order'>
+      Order: <Text data-test='additional-info-order-value'>{order}</Text>
+    </Text>
   </View>
 );
 

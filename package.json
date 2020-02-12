@@ -8,6 +8,15 @@
     "eject": "expo eject",
     "test": "jest"
   },
+  "jest": {
+    "preset": "jest-expo",
+    "setupFiles": [
+      "./src/setupTests.js"
+    ],
+    "transformIgnorePatterns": [
+      "node_modules/(?!(jest-)?react-native|react-clone-referenced-element|@react-native-community|expo(nent)?|@expo(nent)?/.*|react-navigation|@react-navigation/.*|@unimodules/.*|unimodules|sentry-expo|native-base)"
+    ]
+  },
   "dependencies": {
     "axios": "^0.19.2",
     "expo": "~36.0.0",
@@ -19,7 +28,10 @@
   "devDependencies": {
     "@babel/core": "^7.0.0",
     "babel-preset-expo": "~8.0.0",
-    "jest": "^25.1.0"
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.2",
+    "jest": "^25.1.0",
+    "jest-expo": "^36.0.1"
   },
   "private": true
 }

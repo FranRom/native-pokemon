@@ -18,11 +18,17 @@ The data is fetched from PokeAPI, documentation: https://pokeapi.co/docs/v2.html
 
 You need to be using Node (https://nodejs.org/en/), last version recommended.
 
-To start, run
+To start, run:
 
 ```
 yarn
 expo start
+```
+
+I have added some unit tests to check simple rendering, you can run them with:
+
+```
+yarn test
 ```
 
 ## Preview
