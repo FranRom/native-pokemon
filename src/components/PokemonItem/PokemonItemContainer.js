@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Text, View } from 'react-native';
 
-import { LOADING_TEXT, ERROR_MESSAGE } from '../../utils/Constants';
+import { LOADING_TEXT, ERROR_MESSAGE } from '../../utils/constants';
 import useRequestData from '../../utils/useRequestData';
 
 import PokemonItem from './PokemonItem';

@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { View, Text } from 'react-native';
 
-import { additionalInfoStyles } from '../../utils/Styles';
+import { additionalInfoStyles } from '../../utils/styles';
 
 const AdditionalInfo = ({ height, weight, order }) => (
   <View style={additionalInfoStyles.container}>

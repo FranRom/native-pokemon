@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 import { View, Text, TouchableOpacity, Image } from 'react-native';
 import { Audio } from 'expo-av';
 
-import { pokemonItemStyles } from '../../utils/Styles';
+import { pokemonItemStyles } from '../../utils/styles';
 
-import AddtionalInfo from '../AdditionalInfo';
+import AdditionalInfo from '../AdditionalInfo';
 
 const PlayCryAudio = async sourceId => {
   const crySoundPath = `https://play.pokemonshowdown.com/audio/cries/${sourceId}.mp3`;
@@ -42,7 +42,7 @@ const PokemonItem = ({ name, pokemonData }) => {
           />
           <Text style={pokemonItemStyles.name}>{name}</Text>
           {showInfo && (
-            <AddtionalInfo height={height} weight={weight} order={order} />
+            <AdditionalInfo height={height} weight={weight} order={order} />
           )}
         </View>
       </TouchableOpacity>

@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { View, FlatList } from 'react-native';
 
-import { pokemonListStyles } from '../../utils/Styles';
+import { pokemonListStyles } from '../../utils/styles';
 
 import PokemonItem from '../PokemonItem';
 
